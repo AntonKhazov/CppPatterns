@@ -1,0 +1,23 @@
+{
+	"version": 4,
+	"configurations": [
+		{
+			"name": "learn_patterns",
+			"includePath": [
+				"${workspaceFolder}/**"
+			],
+			"compilerArgs": [
+				"-g",
+				"-c",
+				"-Wall"
+			],
+			"defines": [
+				"NOTHING"
+			],
+			"compilerPath": "/usr/bin/gcc",
+			"cStandard": "gnu11",
+			"cppStandard": "gnu++17",
+			"intelliSenseMode": "linux-gcc-x64"
+		}
+	]
+}
