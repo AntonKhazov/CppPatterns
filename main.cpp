@@ -79,7 +79,7 @@ int main()
 
 	cout << "4. Одиночка (Singleton):" << endl;
 	{
-		// DatabaseHelper *connection = new DatabaseHelper();
+		// DatabaseHelper *connection = new DatabaseHelper(); // Ошибка
 
 		DatabaseHelper::getConnection()->insertData("123");
 
@@ -89,6 +89,14 @@ int main()
 
 	cout << "5. Прототип (Prototype):" << endl;
 	{
+		Sheep *sheepDonor = new Sheep();
+		string name = "Долли";
+		sheepDonor->setName(&name);
+
+		Sheep *sheepClone = sheepDonor->clone();
+
+		cout << sheepDonor->getName() << endl;
+		cout << sheepClone->getName() << endl;
 	}
 	cout << endl;
 
