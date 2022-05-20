@@ -8,7 +8,7 @@ PATH_INCLUDES := .
 
 LDFLAGS := 
 
-SHARED_LIBS	:= 
+SHARED_LIBS := 
 
 STATIC_LIBS := 
 
