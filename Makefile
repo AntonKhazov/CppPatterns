@@ -1,4 +1,4 @@
-APP_NAME := learn_patterns
+APP_NAME := CppPatterns
 
 CPP := g++
 

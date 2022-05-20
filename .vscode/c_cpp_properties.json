@@ -2,7 +2,7 @@
 	"version": 4,
 	"configurations": [
 		{
-			"name": "learn_patterns",
+			"name": "CppPatterns",
 			"includePath": [
 				"${workspaceFolder}/**"
 			],
