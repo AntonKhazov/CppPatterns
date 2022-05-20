@@ -151,6 +151,14 @@ int main()
 
 	cout << "8. Мост (Bridge):" << endl;
 	{
+		Sender *sender = new EmailSender(new DataBaseReader());
+		sender->send();
+
+		sender->setDataReader(new FileReader());
+		sender->send();
+
+		sender = new TelegrgamBotSender(new DataBaseReader());
+		sender->send();
 	}
 	cout << endl;
 
