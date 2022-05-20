@@ -139,6 +139,9 @@ int main()
 
 		cout << *rScales->getWeight() << endl; // кг
 		cout << *bScales->getWeight() << endl; // кг
+
+		rScales->adjust();
+		bScales->adjust();
 	}
 	cout << endl;
 
