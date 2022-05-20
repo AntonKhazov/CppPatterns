@@ -5,75 +5,77 @@
 
 using namespace std;
 
-class Scales {
-public:
-	virtual float *getWeight() = 0;
+namespace AdapterObjects {
+	class Scales {
+	public:
+		virtual float *getWeight() = 0;
 
-	virtual ~Scales()
-	{
-	}
-};
+		virtual ~Scales()
+		{
+		}
+	};
 
-class RussianScales : public Scales {
-	float *currentWeight;
+	class RussianScales : public Scales {
+		float *currentWeight;
 
-public:
-	RussianScales(float *cw) : currentWeight(cw)
-	{
-	}
+	public:
+		RussianScales(float *cw) : currentWeight(cw)
+		{
+		}
 
-	~RussianScales() override
-	{
-		delete currentWeight;
-	}
+		~RussianScales() override
+		{
+			delete currentWeight;
+		}
 
-	float *getWeight() override
-	{
-		return currentWeight;
-	}
-};
+		float *getWeight() override
+		{
+			return currentWeight;
+		}
+	};
 
-class BritishScales {
-	float *currentWeight;
+	class BritishScales {
+		float *currentWeight;
 
-public:
-	BritishScales(float *cw) : currentWeight(cw)
-	{
-	}
+	public:
+		BritishScales(float *cw) : currentWeight(cw)
+		{
+		}
 
-	~BritishScales()
-	{
-		delete currentWeight;
-	}
+		~BritishScales()
+		{
+			delete currentWeight;
+		}
 
-	float *getWeight()
-	{
-		return currentWeight;
-	}
-};
+		float *getWeight()
+		{
+			return currentWeight;
+		}
+	};
 
-class AdapterForBritishScales : public Scales {
-	BritishScales *britishScales;
-	float *cw;
+	class AdapterForBritishScales : public Scales {
+		BritishScales *britishScales;
+		float *cw;
 
-public:
-	AdapterForBritishScales(BritishScales *bs) : britishScales(bs), cw(0)
-	{
-	}
+	public:
+		AdapterForBritishScales(BritishScales *bs) : britishScales(bs), cw(0)
+		{
+		}
 
-	~AdapterForBritishScales()
-	{
-		delete britishScales;
-		delete cw;
-	}
+		~AdapterForBritishScales()
+		{
+			delete britishScales;
+			delete cw;
+		}
 
-	float *getWeight() override
-	{
-		cw = britishScales->getWeight();
-		*cw = *cw * 0.453;
+		float *getWeight() override
+		{
+			cw = britishScales->getWeight();
+			*cw = *cw * 0.453;
 
-		return cw;
-	}
-};
+			return cw;
+		}
+	};
+}
 
 #endif // _ADAPTER_OBJECTS_

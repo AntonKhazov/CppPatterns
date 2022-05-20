@@ -5,6 +5,8 @@
 #include "patterns/03_Builder.hpp"
 #include "patterns/04_Singleton.hpp"
 #include "patterns/05_Prototype.hpp"
+#include "patterns/06_AdapterObjects.hpp"
+#include "patterns/07_AdapterClasses.hpp"
 #include "patterns/08_Bridge.hpp"
 #include "patterns/09_Composite.hpp"
 #include "patterns/10_Decorator.hpp"
@@ -112,7 +114,7 @@ int main()
 
 	cout << "6. Адаптер (Adapter). Реализация на уровне объектов:" << endl;
 	{
-#include "patterns/06_AdapterObjects.hpp"
+		using namespace AdapterObjects;
 
 		float kg = 55.0; // кг
 		float lb = 55.0; // фунты
@@ -129,7 +131,7 @@ int main()
 
 	cout << "7. Адаптер (Adapter). Реализация на уровне классов:" << endl;
 	{
-#include "patterns/07_AdapterClasses.hpp"
+		using namespace AdapterClasses;
 
 		float kg = 55.0; // кг
 		float lb = 55.0; // фунты
