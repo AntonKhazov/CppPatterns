@@ -63,6 +63,17 @@ int main()
 
 	cout << "3. Строитель (Builder):" << endl;
 	{
+		IDeveloper *andrDeveloper = new AndroidDeveloper();
+		Director director(andrDeveloper);
+
+		Phone *samsung = director.mountFullPhone();
+		cout << samsung->aboutPhone() << endl;
+
+		IDeveloper *iphoneDeveloper = new IPhoneDeveloper();
+		director.setDeveloper(iphoneDeveloper);
+
+		Phone *iphone = director.mountOnlyPhone();
+		cout << iphone->aboutPhone() << endl;
 	}
 	cout << endl;
 
