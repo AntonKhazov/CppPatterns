@@ -5,8 +5,6 @@
 #include "patterns/03_Builder.hpp"
 #include "patterns/04_Singleton.hpp"
 #include "patterns/05_Prototype.hpp"
-#include "patterns/06_AdapterObjects.hpp"
-#include "patterns/07_AdapterClasses.hpp"
 #include "patterns/08_Bridge.hpp"
 #include "patterns/09_Composite.hpp"
 #include "patterns/10_Decorator.hpp"
@@ -30,6 +28,8 @@ int main()
 {
 	setlocale(LC_ALL, "rus");
 
+	//--------------------------------------------------------------------------
+
 	cout << "1. Фабричный метод (Factory Method):" << endl;
 	{
 		IWorkShop *creator = new CarWorkShop();
@@ -42,6 +42,8 @@ int main()
 		truck->release();
 	}
 	cout << endl;
+
+	//--------------------------------------------------------------------------
 
 	cout << "2. Абстрактная фабрика (Abstract Factory):" << endl;
 	{
@@ -61,6 +63,8 @@ int main()
 	}
 	cout << endl;
 
+	//--------------------------------------------------------------------------
+
 	cout << "3. Строитель (Builder):" << endl;
 	{
 		IDeveloper *andrDeveloper = new AndroidDeveloper();
@@ -77,6 +81,8 @@ int main()
 	}
 	cout << endl;
 
+	//--------------------------------------------------------------------------
+
 	cout << "4. Одиночка (Singleton):" << endl;
 	{
 		// DatabaseHelper *connection = new DatabaseHelper(); // Ошибка
@@ -86,6 +92,8 @@ int main()
 		cout << "Выборка данных из бд: " << DatabaseHelper::getConnection()->selectData() << endl;
 	}
 	cout << endl;
+
+	//--------------------------------------------------------------------------
 
 	cout << "5. Прототип (Prototype):" << endl;
 	{
@@ -100,8 +108,12 @@ int main()
 	}
 	cout << endl;
 
+	//--------------------------------------------------------------------------
+
 	cout << "6. Адаптер (Adapter). Реализация на уровне объектов:" << endl;
 	{
+#include "patterns/06_AdapterObjects.hpp"
+
 		float kg = 55.0; // кг
 		float lb = 55.0; // фунты
 
@@ -113,85 +125,129 @@ int main()
 	}
 	cout << endl;
 
+	//--------------------------------------------------------------------------
+
 	cout << "7. Адаптер (Adapter). Реализация на уровне классов:" << endl;
 	{
+#include "patterns/07_AdapterClasses.hpp"
+
+		float kg = 55.0; // кг
+		float lb = 55.0; // фунты
+
+		Scales *rScales = new RussianScales(&kg);
+		Scales *bScales = new AdapterForBritishScales(&lb);
+
+		cout << *rScales->getWeight() << endl; // кг
+		cout << *bScales->getWeight() << endl; // кг
 	}
 	cout << endl;
+
+	//--------------------------------------------------------------------------
 
 	cout << "8. Мост (Bridge):" << endl;
 	{
 	}
 	cout << endl;
 
+	//--------------------------------------------------------------------------
+
 	cout << "9. Компоновщик (Composite):" << endl;
 	{
 	}
 	cout << endl;
+
+	//--------------------------------------------------------------------------
 
 	cout << "10. Декоратор (Decorator):" << endl;
 	{
 	}
 	cout << endl;
 
+	//--------------------------------------------------------------------------
+
 	cout << "11. Фасад (Facade):" << endl;
 	{
 	}
 	cout << endl;
+
+	//--------------------------------------------------------------------------
 
 	cout << "12. Легковес (Flyweight):" << endl;
 	{
 	}
 	cout << endl;
 
+	//--------------------------------------------------------------------------
+
 	cout << "13. Заместитель (Proxy):" << endl;
 	{
 	}
 	cout << endl;
+
+	//--------------------------------------------------------------------------
 
 	cout << "14. Цепочка обязанностей (Chain of responsibility):" << endl;
 	{
 	}
 	cout << endl;
 
+	//--------------------------------------------------------------------------
+
 	cout << "15. Команда (Command):" << endl;
 	{
 	}
 	cout << endl;
+
+	//--------------------------------------------------------------------------
 
 	cout << "16. Итератор (Iterator):" << endl;
 	{
 	}
 	cout << endl;
 
+	//--------------------------------------------------------------------------
+
 	cout << "17. Посредник (Mediator):" << endl;
 	{
 	}
 	cout << endl;
+
+	//--------------------------------------------------------------------------
 
 	cout << "18. Снимок (Memento):" << endl;
 	{
 	}
 	cout << endl;
 
+	//--------------------------------------------------------------------------
+
 	cout << "19. Наблюдатель (Observer):" << endl;
 	{
 	}
 	cout << endl;
+
+	//--------------------------------------------------------------------------
 
 	cout << "20. Состояние (State):" << endl;
 	{
 	}
 	cout << endl;
 
+	//--------------------------------------------------------------------------
+
 	cout << "21. Стратегия (Strategy):" << endl;
 	{
 	}
 	cout << endl;
 
+	//--------------------------------------------------------------------------
+
 	cout << "22. Шаблонный метод (Template method):" << endl;
 	{
 	}
 	cout << endl;
+
+	//--------------------------------------------------------------------------
 
 	cout << "23. Посетитель (Visitor):" << endl;
 	{
