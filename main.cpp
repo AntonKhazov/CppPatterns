@@ -166,6 +166,34 @@ int main()
 
 	cout << "9. Компоновщик (Composite):" << endl;
 	{
+		Item *file = new DropDownItem("Файл->");
+
+		Item *create = new DropDownItem("Создать->");
+		Item *open = new DropDownItem("Открыть->");
+		Item *exit = new ClickableItem("Выход");
+
+		file->add(create);
+		file->add(open);
+		file->add(exit);
+
+		Item *project = new ClickableItem("Проект...");
+		Item *repository = new ClickableItem("Репозиторий...");
+
+		create->add(project);
+		create->add(repository);
+
+		Item *solution = new ClickableItem("Решение...");
+		Item *folder = new ClickableItem("Папка...");
+
+		open->add(solution);
+		open->add(folder);
+
+		file->display();
+		cout << endl;
+
+		file->remove(create);
+
+		file->display();
 	}
 	cout << endl;
 
