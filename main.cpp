@@ -79,6 +79,11 @@ int main()
 
 	cout << "4. Одиночка (Singleton):" << endl;
 	{
+		// DatabaseHelper *connection = new DatabaseHelper();
+
+		DatabaseHelper::getConnection()->insertData("123");
+
+		cout << "Выборка данных из бд: " << DatabaseHelper::getConnection()->selectData() << endl;
 	}
 	cout << endl;
 
