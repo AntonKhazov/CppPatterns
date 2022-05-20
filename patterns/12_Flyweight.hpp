@@ -5,4 +5,7 @@
 
 using namespace std;
 
+namespace PatternFlyweight {
+}
+
 #endif // _FLYWEIGHT_

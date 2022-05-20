@@ -5,4 +5,7 @@
 
 using namespace std;
 
+namespace PatternChainOfResponsibility {
+}
+
 #endif // _CHAIN_OF_RESPONSIBILITY_

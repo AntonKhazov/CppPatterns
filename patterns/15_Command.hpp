@@ -5,4 +5,7 @@
 
 using namespace std;
 
+namespace PatternCommand {
+}
+
 #endif // _COMMAND_

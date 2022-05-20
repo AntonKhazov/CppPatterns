@@ -5,4 +5,8 @@
 
 using namespace std;
 
+namespace PatternState {
+
+}
+
 #endif // _STATE_

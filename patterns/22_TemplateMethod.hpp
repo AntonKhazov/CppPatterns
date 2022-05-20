@@ -5,4 +5,7 @@
 
 using namespace std;
 
+namespace PatternTemplateMethod {
+}
+
 #endif // _TEMPLATE_METHOD_

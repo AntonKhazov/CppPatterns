@@ -5,4 +5,7 @@
 
 using namespace std;
 
+namespace PatternVisitor {
+}
+
 #endif // _VISITOR_

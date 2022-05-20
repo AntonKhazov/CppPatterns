@@ -5,4 +5,7 @@
 
 using namespace std;
 
+namespace PatternStrategy {
+}
+
 #endif // _STRATEGY_

@@ -5,4 +5,7 @@
 
 using namespace std;
 
+namespace PatternIterator {
+}
+
 #endif // _ITERATOR_

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-namespace AdapterClasses {
+namespace PatternAdapterClasses {
 	class Scales {
 	public:
 		virtual ~Scales() {}

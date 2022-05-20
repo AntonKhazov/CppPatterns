@@ -5,7 +5,7 @@
 
 using namespace std;
 
-namespace AdapterObjects {
+namespace PatternAdapterObjects {
 	class Scales {
 	public:
 		virtual float *getWeight() = 0;

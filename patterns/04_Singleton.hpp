@@ -6,39 +6,41 @@
 
 using namespace std;
 
-class DatabaseHelper {
-	DatabaseHelper()
-	{
-		cout << "Подключение к бд" << endl;
-	}
+namespace PatternSingleton {
+	class DatabaseHelper {
+		DatabaseHelper()
+		{
+			cout << "Подключение к бд" << endl;
+		}
 
-	static DatabaseHelper *databaseConnection;
-	string data;
+		static DatabaseHelper *databaseConnection;
+		string data;
 
-public:
-	DatabaseHelper(const DatabaseHelper &) = delete;
-	void operator=(const DatabaseHelper &) = delete;
+	public:
+		DatabaseHelper(const DatabaseHelper &) = delete;
+		void operator=(const DatabaseHelper &) = delete;
 
-	static DatabaseHelper *getConnection()
-	{
-		if (databaseConnection == nullptr)
-			databaseConnection = new DatabaseHelper();
+		static DatabaseHelper *getConnection()
+		{
+			if (databaseConnection == nullptr)
+				databaseConnection = new DatabaseHelper();
 
-		return databaseConnection;
-	}
+			return databaseConnection;
+		}
 
-	string selectData() const
-	{
-		return data;
-	}
+		string selectData() const
+		{
+			return data;
+		}
 
-	void insertData(string d)
-	{
-		cout << "Новые данные: " << d << " внесены в бд" << endl;
-		data = d;
-	}
-};
+		void insertData(string d)
+		{
+			cout << "Новые данные: " << d << " внесены в бд" << endl;
+			data = d;
+		}
+	};
 
-DatabaseHelper *DatabaseHelper::databaseConnection = nullptr;
+	DatabaseHelper *DatabaseHelper::databaseConnection = nullptr;
+}
 
 #endif // _SINGLETON_

@@ -5,4 +5,7 @@
 
 using namespace std;
 
+namespace PatternObserver {
+}
+
 #endif // _OBSERVER_

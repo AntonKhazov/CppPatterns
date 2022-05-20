@@ -5,4 +5,7 @@
 
 using namespace std;
 
+namespace PatternProxy {
+}
+
 #endif // _PROXY_

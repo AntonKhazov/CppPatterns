@@ -5,139 +5,141 @@
 
 using namespace std;
 
-// Результат производства
-class Phone {
-	string data;
+namespace PatternBuilder {
+	// Результат производства
+	class Phone {
+		string data;
 
-public:
-	Phone()
-	{
-		data = "";
-	}
+	public:
+		Phone()
+		{
+			data = "";
+		}
 
-	string aboutPhone()
-	{
-		return data;
-	}
+		string aboutPhone()
+		{
+			return data;
+		}
 
-	void appendData(string str)
-	{
-		data += str;
-	}
-};
+		void appendData(string str)
+		{
+			data += str;
+		}
+	};
 
-// Интерфейс разработчика
-class IDeveloper {
-public:
-	virtual void createDisplay() = 0;
-	virtual void createBox() = 0;
-	virtual void systemInstall() = 0;
+	// Интерфейс разработчика
+	class IDeveloper {
+	public:
+		virtual void createDisplay() = 0;
+		virtual void createBox() = 0;
+		virtual void systemInstall() = 0;
 
-	virtual Phone *getPhone() = 0;
-};
+		virtual Phone *getPhone() = 0;
+	};
 
-// Разработчик телефонов на android платформе
-class AndroidDeveloper : public IDeveloper {
-	Phone *phone;
+	// Разработчик телефонов на android платформе
+	class AndroidDeveloper : public IDeveloper {
+		Phone *phone;
 
-public:
-	AndroidDeveloper()
-	{
-		phone = new Phone();
-	}
+	public:
+		AndroidDeveloper()
+		{
+			phone = new Phone();
+		}
 
-	~AndroidDeveloper()
-	{
-		delete phone;
-	}
+		~AndroidDeveloper()
+		{
+			delete phone;
+		}
 
-	void createDisplay() override
-	{
-		phone->appendData("Произведен дисплей Samsung; ");
-	}
+		void createDisplay() override
+		{
+			phone->appendData("Произведен дисплей Samsung; ");
+		}
 
-	void createBox() override
-	{
-		phone->appendData("Произведен корпус Samsung; ");
-	}
+		void createBox() override
+		{
+			phone->appendData("Произведен корпус Samsung; ");
+		}
 
-	void systemInstall() override
-	{
-		phone->appendData("Установлена система Android; ");
-	}
+		void systemInstall() override
+		{
+			phone->appendData("Установлена система Android; ");
+		}
 
-	Phone *getPhone() override
-	{
-		return phone;
-	}
-};
+		Phone *getPhone() override
+		{
+			return phone;
+		}
+	};
 
-// Разработчик айфонов
-class IPhoneDeveloper : public IDeveloper {
-	Phone *phone;
+	// Разработчик айфонов
+	class IPhoneDeveloper : public IDeveloper {
+		Phone *phone;
 
-public:
-	IPhoneDeveloper()
-	{
-		phone = new Phone();
-	}
+	public:
+		IPhoneDeveloper()
+		{
+			phone = new Phone();
+		}
 
-	~IPhoneDeveloper()
-	{
-		delete phone;
-	}
+		~IPhoneDeveloper()
+		{
+			delete phone;
+		}
 
-	void createDisplay() override
-	{
-		phone->appendData("Произведен дисплей Apple; ");
-	}
+		void createDisplay() override
+		{
+			phone->appendData("Произведен дисплей Apple; ");
+		}
 
-	void createBox() override
-	{
-		phone->appendData("Произведен корпус Apple; ");
-	}
+		void createBox() override
+		{
+			phone->appendData("Произведен корпус Apple; ");
+		}
 
-	void systemInstall() override
-	{
-		phone->appendData("Установлена система IOS; ");
-	}
+		void systemInstall() override
+		{
+			phone->appendData("Установлена система IOS; ");
+		}
 
-	Phone *getPhone() override
-	{
-		return phone;
-	}
-};
+		Phone *getPhone() override
+		{
+			return phone;
+		}
+	};
 
-// Директор разработчиков
-class Director {
-	IDeveloper *developer;
+	// Директор разработчиков
+	class Director {
+		IDeveloper *developer;
 
-public:
-	Director(IDeveloper *dev) : developer(dev)
-	{
-	}
+	public:
+		Director(IDeveloper *dev) : developer(dev)
+		{
+		}
 
-	void setDeveloper(IDeveloper *dev)
-	{
-		developer = dev;
-	}
+		void setDeveloper(IDeveloper *dev)
+		{
+			developer = dev;
+		}
 
-	Phone *mountOnlyPhone()
-	{
-		developer->createBox();
-		developer->createDisplay();
+		Phone *mountOnlyPhone()
+		{
+			developer->createBox();
+			developer->createDisplay();
 
-		return developer->getPhone();
-	}
+			return developer->getPhone();
+		}
 
-	Phone *mountFullPhone()
-	{
-		developer->createBox();
-		developer->createDisplay();
-		developer->systemInstall();
+		Phone *mountFullPhone()
+		{
+			developer->createBox();
+			developer->createDisplay();
+			developer->systemInstall();
 
-		return developer->getPhone();
-	}
-};
+			return developer->getPhone();
+		}
+	};
+}
 
 #endif // _BUILDER_

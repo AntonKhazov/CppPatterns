@@ -5,4 +5,7 @@
 
 using namespace std;
 
+namespace PatternMemento {
+}
+
 #endif // _MEMENTO_

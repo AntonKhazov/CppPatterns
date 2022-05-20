@@ -5,4 +5,7 @@
 
 using namespace std;
 
+namespace PatternMediator {
+}
+
 #endif // _MEDIATOR_
