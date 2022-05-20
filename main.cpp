@@ -201,6 +201,14 @@ int main()
 
 	cout << "10. Декоратор (Decorator):" << endl;
 	{
+		Processor *transmitter = new Transmitter("12345");
+		transmitter->process();
+
+		Shell *hammingCoder = new HammingCoder(transmitter);
+		hammingCoder->process();
+
+		Shell *encriptor = new Encryptor(hammingCoder);
+		encriptor->process();
 	}
 	cout << endl;
 
