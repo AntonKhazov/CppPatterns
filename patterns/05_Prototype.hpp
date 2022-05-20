@@ -8,8 +8,12 @@ using namespace std;
 
 class Animal {
 public:
-	virtual void setName(string *name) {}
+	virtual void setName(string *name)
+	{
+	}
+
 	virtual string getName() = 0;
+
 	virtual Animal *clone() const = 0;
 };
 
@@ -22,7 +26,9 @@ class Sheep : public Animal {
 	}
 
 public:
-	Sheep() {}
+	Sheep()
+	{
+	}
 
 	~Sheep()
 	{

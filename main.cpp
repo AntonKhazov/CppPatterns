@@ -102,6 +102,14 @@ int main()
 
 	cout << "6. Адаптер (Adapter). Реализация на уровне объектов:" << endl;
 	{
+		float kg = 55.0; // кг
+		float lb = 55.0; // фунты
+
+		Scales *rScales = new RussianScales(&kg);
+		Scales *bScales = new AdapterForBritishScales(new BritishScales(&lb));
+
+		cout << *rScales->getWeight() << endl; // кг
+		cout << *bScales->getWeight() << endl; // кг
 	}
 	cout << endl;
 

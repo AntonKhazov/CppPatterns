@@ -113,7 +113,9 @@ class Director {
 	IDeveloper *developer;
 
 public:
-	Director(IDeveloper *dev) : developer(dev) {}
+	Director(IDeveloper *dev) : developer(dev)
+	{
+	}
 
 	void setDeveloper(IDeveloper *dev)
 	{
