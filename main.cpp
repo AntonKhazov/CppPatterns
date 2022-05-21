@@ -306,6 +306,14 @@ int main()
 	cout << "13. Заместитель (Proxy):" << endl;
 	{
 		using namespace PatternProxy;
+
+		ISite *mySite = new SiteProxy(new Site());
+
+		cout << mySite->getPage(1) << endl;
+		cout << mySite->getPage(2) << endl;
+		cout << mySite->getPage(3) << endl;
+
+		cout << mySite->getPage(2) << endl;
 	}
 	cout << endl;
 
