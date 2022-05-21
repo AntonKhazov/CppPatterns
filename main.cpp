@@ -272,6 +272,30 @@ int main()
 	cout << "12. Легковес (Flyweight):" << endl;
 	{
 		using namespace PatternFlyweight;
+
+		FlyweightFactory *factory = new FlyweightFactory(
+			{{"Microsoft", "Управляющий"},
+			 {"Google", "Android-разработчик"},
+			 {"Google", "Web-разработчик"},
+			 {"Apple", "IPhone-разработчик"}});
+
+		factory->ListFlyweights();
+
+		AddSpecialistDatabase(*factory,
+							  "Google",
+							  "Web-разработчик",
+							  "Филипп",
+							  "PK-6371173");
+
+		AddSpecialistDatabase(*factory,
+							  "Apple",
+							  "Управляющий",
+							  "Иван",
+							  "XL-5553331");
+
+		factory->ListFlyweights();
+
+		delete factory;
 	}
 	cout << endl;
 
