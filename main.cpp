@@ -324,6 +324,18 @@ int main()
 	cout << "14. Цепочка обязанностей (Chain of responsibility):" << endl;
 	{
 		using namespace PatternChainOfResponsibility;
+
+		Designer *designer = new Designer();
+		Carpenters *carpenters = new Carpenters();
+		FinishingWorker *finishingWorker = new FinishingWorker();
+
+		designer->setNextWorker(carpenters)->setNextWorker(finishingWorker);
+
+		giveCommand(designer, "спроектировать дом");
+		giveCommand(designer, "класть кирпич");
+		giveCommand(designer, "клеить обои");
+
+		giveCommand(designer, "провести проводку");
 	}
 	cout << endl;
 
