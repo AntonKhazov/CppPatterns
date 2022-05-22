@@ -346,6 +346,17 @@ int main()
 	cout << "15. Команда (Command):" << endl;
 	{
 		using namespace PatternCommand;
+
+		Conveyor *conveyor = new Conveyor();
+
+		Multipult *multipult = new Multipult();
+		multipult->setCommand(0, new ConveyorWorkCommand(conveyor));
+		multipult->setCommand(1, new ConveyorAdjustCommand(conveyor));
+
+		multipult->pressOn(0);
+		multipult->pressOn(1);
+		multipult->pressCancel();
+		multipult->pressCancel();
 	}
 	cout << endl;
 
