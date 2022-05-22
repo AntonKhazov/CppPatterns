@@ -367,6 +367,20 @@ int main()
 	cout << "16. Итератор (Iterator):" << endl;
 	{
 		using namespace PatternIterator;
+
+		DataStack stack1;
+
+		for (int i = 1; i < 5; i++) {
+			stack1.push(i);
+		}
+
+		DataStack stack2(stack1);
+
+		cout << boolalpha << (stack1 == stack2) << endl;
+
+		stack1.push(10);
+
+		cout << boolalpha << (stack1 == stack2) << endl;
 	}
 	cout << endl;
 
