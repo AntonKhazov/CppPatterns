@@ -596,6 +596,18 @@ int main()
 	cout << "23. Посетитель (Visitor):" << endl;
 	{
 		using namespace PatternVisitor;
+
+		Zoo zoo;
+		Cinema cinema;
+		Circus circus;
+
+		Place *places[] = {&zoo, &cinema, &circus};
+
+		for (auto place : places) {
+			HolidayMaker vizitor;
+			place->accept(vizitor);
+			cout << vizitor.value << endl;
+		}
 	}
 	cout << endl;
 }
