@@ -9,6 +9,10 @@ namespace PatternAbstractFactory {
 	// Абстрактный двигатель
 	class IEngine {
 	public:
+		virtual ~IEngine()
+		{
+		}
+
 		virtual void releaseEngine() = 0;
 	};
 
@@ -33,6 +37,10 @@ namespace PatternAbstractFactory {
 	// Интерфейс производства автомобилей
 	class ICar {
 	public:
+		virtual ~ICar()
+		{
+		}
+
 		virtual void releaseCar(IEngine *engine) = 0;
 	};
 
@@ -59,7 +67,12 @@ namespace PatternAbstractFactory {
 	// Интерфейс фабрики по производству автомобилей и их двигателей
 	class IFactory {
 	public:
+		virtual ~IFactory()
+		{
+		}
+
 		virtual IEngine *createEngine() = 0;
+
 		virtual ICar *createCar() = 0;
 	};
 

@@ -9,6 +9,10 @@ using namespace std;
 namespace PatternChainOfResponsibility {
 	class IWorker {
 	public:
+		virtual ~IWorker()
+		{
+		}
+
 		virtual IWorker *setNextWorker(IWorker *worker) = 0;
 
 		virtual string execute(string command) = 0;
@@ -19,6 +23,10 @@ namespace PatternChainOfResponsibility {
 
 	public:
 		AbstractWorker() : nextWorker_(nullptr)
+		{
+		}
+
+		virtual ~AbstractWorker()
 		{
 		}
 

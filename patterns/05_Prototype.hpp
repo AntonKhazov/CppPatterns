@@ -9,6 +9,10 @@ using namespace std;
 namespace PatternPrototype {
 	class Animal {
 	public:
+		virtual ~Animal()
+		{
+		}
+
 		virtual void setName(string *name)
 		{
 		}
@@ -19,11 +23,11 @@ namespace PatternPrototype {
 	};
 
 	class Sheep : public Animal {
-		string *name;
+		string *name_;
 
 		Sheep(const Sheep &donor)
 		{
-			name = donor.name;
+			name_ = donor.name_;
 		}
 
 	public:
@@ -31,19 +35,14 @@ namespace PatternPrototype {
 		{
 		}
 
-		~Sheep()
-		{
-			delete name;
-		}
-
 		void setName(string *name) override
 		{
-			this->name = name;
+			name_ = name;
 		}
 
 		string getName() override
 		{
-			return *name;
+			return *name_;
 		}
 
 		Sheep *clone() const

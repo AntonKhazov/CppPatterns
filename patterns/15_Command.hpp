@@ -10,7 +10,12 @@ using namespace std;
 namespace PatternCommand {
 	class ICommand {
 	public:
+		virtual ~ICommand()
+		{
+		}
+
 		virtual void positive() = 0;
+
 		virtual void negative() = 0;
 	};
 
@@ -83,6 +88,14 @@ namespace PatternCommand {
 		Multipult()
 		{
 			commands_.resize(2);
+		}
+
+		~Multipult()
+		{
+			for (auto command : commands_) {
+				if (command)
+					delete command;
+			}
 		}
 
 		void setCommand(int button, ICommand *command)

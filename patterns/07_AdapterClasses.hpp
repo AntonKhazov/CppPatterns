@@ -8,7 +8,9 @@ using namespace std;
 namespace PatternAdapterClasses {
 	class Scales {
 	public:
-		virtual ~Scales() {}
+		virtual ~Scales()
+		{
+		}
 
 		virtual float *getWeight() = 0;
 
@@ -16,21 +18,16 @@ namespace PatternAdapterClasses {
 	};
 
 	class RussianScales : public Scales {
-		float *currentWeight;
+		float *currentWeight_;
 
 	public:
-		RussianScales(float *cw) : currentWeight(cw)
+		RussianScales(float *cw) : currentWeight_(cw)
 		{
-		}
-
-		~RussianScales() override
-		{
-			delete currentWeight;
 		}
 
 		float *getWeight() override
 		{
-			return currentWeight;
+			return currentWeight_;
 		}
 
 		void adjust() override
@@ -40,21 +37,16 @@ namespace PatternAdapterClasses {
 	};
 
 	class BritishScales {
-		float *currentWeight;
+		float *currentWeight_;
 
 	public:
-		BritishScales(float *cw) : currentWeight(cw)
+		BritishScales(float *cw) : currentWeight_(cw)
 		{
-		}
-
-		~BritishScales()
-		{
-			delete currentWeight;
 		}
 
 		float *getWeight()
 		{
-			return currentWeight;
+			return currentWeight_;
 		}
 
 	protected:
@@ -66,23 +58,18 @@ namespace PatternAdapterClasses {
 
 	class AdapterForBritishScales : public Scales, private BritishScales {
 	private:
-		float *cw;
+		float *cw_;
 
 	public:
 		AdapterForBritishScales(float *cw) : BritishScales(cw)
 		{
 		}
 
-		~AdapterForBritishScales()
-		{
-			delete cw;
-		}
-
 		float *getWeight() override
 		{
-			cw = BritishScales::getWeight();
-			*cw = *cw * 0.453;
-			return cw;
+			cw_ = BritishScales::getWeight();
+			*cw_ = *cw_ * 0.453;
+			return cw_;
 		}
 
 		void adjust() override

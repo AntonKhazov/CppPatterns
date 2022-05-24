@@ -8,6 +8,10 @@ using namespace std;
 namespace PatternBridge {
 	class DataReader {
 	public:
+		virtual ~DataReader()
+		{
+		}
+
 		virtual void read() = 0;
 	};
 
@@ -29,16 +33,21 @@ namespace PatternBridge {
 
 	class Sender {
 	protected:
-		DataReader *reader;
+		DataReader *reader_;
 
 	public:
-		Sender(DataReader *dr) : reader(dr)
+		Sender(DataReader *dr) : reader_(dr)
 		{
+		}
+
+		virtual ~Sender()
+		{
+			delete reader_;
 		}
 
 		void setDataReader(DataReader *dr)
 		{
-			reader = dr;
+			reader_ = dr;
 		}
 
 		virtual void send() = 0;
@@ -52,7 +61,7 @@ namespace PatternBridge {
 
 		void send() override
 		{
-			reader->read();
+			reader_->read();
 			cout << "отправлены при помощи Email" << endl;
 		}
 	};
@@ -65,7 +74,7 @@ namespace PatternBridge {
 
 		void send() override
 		{
-			reader->read();
+			reader_->read();
 			cout << "отправлены при помощи Telegram бота" << endl;
 		}
 	};

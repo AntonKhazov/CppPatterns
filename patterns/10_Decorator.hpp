@@ -8,6 +8,10 @@ using namespace std;
 namespace PatternDecorator {
 	class Processor {
 	public:
+		virtual ~Processor()
+		{
+		}
+
 		virtual void process() = 0;
 	};
 
@@ -32,6 +36,10 @@ namespace PatternDecorator {
 
 	public:
 		Shell(Processor *pr) : processor(pr)
+		{
+		}
+
+		virtual ~Shell()
 		{
 		}
 

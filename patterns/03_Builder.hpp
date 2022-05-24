@@ -30,8 +30,14 @@ namespace PatternBuilder {
 	// Интерфейс разработчика
 	class IDeveloper {
 	public:
+		virtual ~IDeveloper()
+		{
+		}
+
 		virtual void createDisplay() = 0;
+
 		virtual void createBox() = 0;
+
 		virtual void systemInstall() = 0;
 
 		virtual Phone *getPhone() = 0;

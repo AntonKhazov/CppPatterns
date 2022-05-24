@@ -1,4 +1,4 @@
-APP_NAME := CppPatterns
+APP_NAME := CppPatterns 
 
 CPP := g++
 

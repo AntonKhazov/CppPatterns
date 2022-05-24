@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 
 while read x ; do echo $x ; done \
 | grep -P 'error:|warning:|note:' \

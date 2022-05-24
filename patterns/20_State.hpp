@@ -38,6 +38,12 @@ namespace PatternState {
 			setState(st);
 		}
 
+		~TrafficLight()
+		{
+			if (state_)
+				delete state_;
+		}
+
 		void setState(State *st)
 		{
 			if (state_)

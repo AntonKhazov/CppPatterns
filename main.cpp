@@ -40,12 +40,17 @@ int main()
 
 		IWorkShop *creator = new CarWorkShop();
 		IProduction *car = creator->create();
+		delete creator;
 
 		creator = new TruckWorkShop();
 		IProduction *truck = creator->create();
+		delete creator;
 
 		car->release();
 		truck->release();
+
+		delete car;
+		delete truck;
 	}
 	cout << endl;
 
@@ -70,6 +75,13 @@ int main()
 		rCar->releaseCar(rEngine);
 
 		rCar->releaseCar(jEngine);
+
+		delete jFactory;
+		delete rFactory;
+		delete jEngine;
+		delete rEngine;
+		delete jCar;
+		delete rCar;
 	}
 	cout << endl;
 
@@ -92,6 +104,9 @@ int main()
 
 		Phone *iphone = director.mountOnlyPhone();
 		cout << iphone->aboutPhone() << endl;
+
+		delete iphoneDeveloper;
+		delete andrDeveloper;
 	}
 	cout << endl;
 
@@ -127,6 +142,9 @@ int main()
 
 		cout << sheepDonor->getName() << endl;
 		cout << sheepClone->getName() << endl;
+
+		delete sheepClone;
+		delete sheepDonor;
 	}
 	cout << endl;
 
@@ -168,6 +186,9 @@ int main()
 
 		rScales->adjust();
 		bScales->adjust();
+
+		delete rScales;
+		delete bScales;
 	}
 	cout << endl;
 
@@ -185,8 +206,12 @@ int main()
 		sender->setDataReader(new FileReader());
 		sender->send();
 
+		delete sender;
+
 		sender = new TelegrgamBotSender(new DataBaseReader());
 		sender->send();
+
+		delete sender;
 	}
 	cout << endl;
 
@@ -226,6 +251,15 @@ int main()
 		file->remove(create);
 
 		file->display();
+
+		delete folder;
+		delete solution;
+		delete repository;
+		delete project;
+		delete exit;
+		delete open;
+		delete create;
+		delete file;
 	}
 	cout << endl;
 
@@ -245,6 +279,10 @@ int main()
 
 		Shell *encriptor = new Encryptor(hammingCoder);
 		encriptor->process();
+
+		delete encriptor;
+		delete hammingCoder;
+		delete transmitter;
 	}
 	cout << endl;
 
@@ -314,6 +352,8 @@ int main()
 		cout << mySite->getPage(3) << endl;
 
 		cout << mySite->getPage(2) << endl;
+
+		delete mySite;
 	}
 	cout << endl;
 
@@ -336,6 +376,10 @@ int main()
 		giveCommand(designer, "клеить обои");
 
 		giveCommand(designer, "провести проводку");
+
+		delete designer;
+		delete carpenters;
+		delete finishingWorker;
 	}
 	cout << endl;
 
@@ -357,6 +401,9 @@ int main()
 		multipult->pressOn(1);
 		multipult->pressCancel();
 		multipult->pressCancel();
+
+		delete multipult;
+		delete conveyor;
 	}
 	cout << endl;
 
@@ -446,6 +493,9 @@ int main()
 
 		exchange->getDollars();
 		exchange->getEuro();
+
+		delete memory;
+		delete exchange;
 	}
 	cout << endl;
 

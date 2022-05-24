@@ -9,6 +9,10 @@ namespace PatternFactoryMethod {
 	// Интерфейс выпуска автомобилей
 	class IProduction {
 	public:
+		virtual ~IProduction()
+		{
+		}
+
 		virtual void release() = 0;
 	};
 
@@ -33,6 +37,10 @@ namespace PatternFactoryMethod {
 	// Абстрактный цех по производству автомобилей
 	class IWorkShop {
 	public:
+		virtual ~IWorkShop()
+		{
+		}
+
 		// Абстрактный автомобиль
 		virtual IProduction *create() = 0;
 	};

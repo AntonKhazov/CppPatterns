@@ -19,6 +19,10 @@ namespace PatternComposite {
 		{
 		}
 
+		virtual ~Item()
+		{
+		}
+
 		void setOwner(string o)
 		{
 			ownerName = o;

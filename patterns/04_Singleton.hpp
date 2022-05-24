@@ -13,19 +13,26 @@ namespace PatternSingleton {
 			cout << "Подключение к бд" << endl;
 		}
 
-		static DatabaseHelper *databaseConnection;
+		static DatabaseHelper *databaseConnection_;
 		string data;
 
 	public:
 		DatabaseHelper(const DatabaseHelper &) = delete;
+
+		~DatabaseHelper()
+		{
+			if (databaseConnection_)
+				delete databaseConnection_;
+		}
+
 		void operator=(const DatabaseHelper &) = delete;
 
 		static DatabaseHelper *getConnection()
 		{
-			if (databaseConnection == nullptr)
-				databaseConnection = new DatabaseHelper();
+			if (databaseConnection_ == nullptr)
+				databaseConnection_ = new DatabaseHelper();
 
-			return databaseConnection;
+			return databaseConnection_;
 		}
 
 		string selectData() const
@@ -40,7 +47,7 @@ namespace PatternSingleton {
 		}
 	};
 
-	DatabaseHelper *DatabaseHelper::databaseConnection = nullptr;
+	DatabaseHelper *DatabaseHelper::databaseConnection_ = nullptr;
 }
 
 #endif // _SINGLETON_
