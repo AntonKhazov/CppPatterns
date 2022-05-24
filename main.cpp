@@ -416,6 +416,36 @@ int main()
 	cout << "18. Снимок (Memento):" << endl;
 	{
 		using namespace PatternMemento;
+
+		Exchange *exchange = new Exchange(10, 10);
+
+		Memory *memory = new Memory(exchange);
+
+		exchange->getDollars();
+		exchange->getEuro();
+
+		cout << "---- Продажа доллара, покупка евро ----" << endl;
+		exchange->sell();
+		exchange->buy();
+
+		exchange->getDollars();
+		exchange->getEuro();
+
+		cout << "---- Сохранение состояния -------------" << endl;
+		memory->backup();
+
+		cout << "---- Продажа доллара, покупка евро ----" << endl;
+		exchange->sell();
+		exchange->buy();
+
+		exchange->getDollars();
+		exchange->getEuro();
+
+		cout << "---- Восстановление состояния ---------" << endl;
+		memory->undo();
+
+		exchange->getDollars();
+		exchange->getEuro();
 	}
 	cout << endl;
 
