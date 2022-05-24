@@ -391,6 +391,21 @@ int main()
 	cout << "17. Посредник (Mediator):" << endl;
 	{
 		using namespace PatternMediator;
+
+		Designer *designer = new Designer();
+		Director *director = new Director();
+
+		Controller *mediator = new Controller(designer, director);
+
+		director->giveCommand("Проектировать");
+
+		cout << endl;
+
+		designer->executeWork();
+
+		delete designer;
+		delete director;
+		delete mediator;
 	}
 	cout << endl;
 
