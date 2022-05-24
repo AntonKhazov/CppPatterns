@@ -548,6 +548,21 @@ int main()
 	cout << "21. Стратегия (Strategy):" << endl;
 	{
 		using namespace PatternStrategy;
+
+		ResourceReader *resourceReader = new ResourceReader(new NewsSiteReader());
+
+		string url = "https://www.engadget.com/";
+		resourceReader->read(url);
+
+		url = "https://linkedin.com";
+		resourceReader->setStrategy(new SocialNetworkReader());
+		resourceReader->read(url);
+
+		url = "@news_channel_telegram";
+		resourceReader->setStrategy(new TelegramChannelReader());
+		resourceReader->read(url);
+
+		delete resourceReader;
 	}
 	cout << endl;
 
