@@ -478,6 +478,16 @@ int main()
 	cout << "20. Состояние (State):" << endl;
 	{
 		using namespace PatternState;
+
+		TrafficLight *trafficLight = new TrafficLight(new YellowState());
+
+		trafficLight->nextState();
+		trafficLight->nextState();
+		trafficLight->previousState();
+		trafficLight->previousState();
+		trafficLight->previousState();
+
+		delete trafficLight;
 	}
 	cout << endl;
 

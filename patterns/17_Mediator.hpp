@@ -100,11 +100,13 @@ namespace PatternMediator {
 
 		void Notify(Employee *emp, string msg) override
 		{
-			if (auto dir = dynamic_cast<Director *>(emp))
+			auto dir = dynamic_cast<Director *>(emp);
+			if (dir)
 				designer_->setWork(!msg.empty());
 
-			if (auto des = dynamic_cast<Designer *>(emp) &&
-						   msg == "дизайнер проектирует...")
+			auto des = dynamic_cast<Designer *>(emp);
+			if (des &&
+				msg == "дизайнер проектирует...")
 				director_->giveCommand("");
 		}
 	};
