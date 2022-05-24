@@ -456,6 +456,18 @@ int main()
 	cout << "19. Наблюдатель (Observer):" << endl;
 	{
 		using namespace PatternObserver;
+
+		Product *product = new Product(400);
+
+		Wholesaler *wholesaler = new Wholesaler(product);
+		Buyer *buyer = new Buyer(product);
+
+		product->changePrice(320);
+		product->changePrice(280);
+
+		delete wholesaler;
+		delete buyer;
+		delete product;
 	}
 	cout << endl;
 
