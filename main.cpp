@@ -573,6 +573,19 @@ int main()
 	cout << "22. Шаблонный метод (Template method):" << endl;
 	{
 		using namespace PatternTemplateMethod;
+
+		Transmitter *analogTransmitter = new AnalogTransmitter();
+
+		analogTransmitter->processStart();
+
+		cout << endl;
+
+		Transmitter *digitalTransmitter = new DigitalTransmitter();
+
+		digitalTransmitter->processStart();
+
+		delete analogTransmitter;
+		delete digitalTransmitter;
 	}
 	cout << endl;
 
